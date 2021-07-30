@@ -37,10 +37,22 @@ const getAddress = () => {
   return address;
 }
 
-app.get("/api/user", (req, res) => {
+const userCompany = () => {
+  const personalDetail = {
+    user: createUser(),
+    company: company()
+  }
+  return personalDetail
+}
+
+app.get("/api/user/new", (req, res) => {
   res.json(createUser())
 })
 
-app.get("/api/company", (req, res) => {
+app.get("/api/company/new", (req, res) => {
   res.json(company())
+})
+
+app.get("/api/user/company", (req, res) => {
+  res.json(userCompany())
 })
